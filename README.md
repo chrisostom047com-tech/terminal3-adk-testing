@@ -47,13 +47,18 @@ Submission for the Terminal3 ADK bounty (Superteam Earn): testing the T3N SDK qu
 ## Screenshots
 
 See `/screenshots` folder:
-- `claim-page.png` — API key + DID claimed
-- `quickstart-code.png` — quickstart.ts content
-- `handshake-error.png` — full error stack trace
+- [`claim-page.png`](screenshots/claim-page.png) — API key + DID claimed
+- [`quickstart-code.png`](screenshots/quickstart-code.png) — quickstart.ts content
+- [`handshake-error.png`](screenshots/handshake-error.png) — full error stack trace
+
 
 ## Initial use case (bonus)
 
-*[To be filled in — see notes below]*
+**Privacy-preserving pre-signature transaction risk scoring**
+
+A wallet-security extension (like PayShield AI, which intercepts Solana signature requests before they reach Phantom) needs to score transaction risk before the user signs — but doing this well often requires cross-referencing sensitive signals: the user's transaction history, known scam-address lists, and behavioral patterns. Sending this data to a third-party risk API exposes exactly the kind of private data users are trying to protect by using a signature-interception tool in the first place.
+
+Terminal3's TEE contracts could host the risk-scoring logic itself: the extension authenticates via a DID, submits the unsigned transaction to a Terminal3 tenant contract running inside a confidential-compute enclave, and gets back a risk score — without the scoring provider (or Terminal3 itself) ever seeing the user's raw wallet history in plaintext. This matches Terminal3's stated goal of making "fully private data freely composable" while still letting the extension act on the result in real time, before the user is asked to sign.
 
 ## Notes
 
