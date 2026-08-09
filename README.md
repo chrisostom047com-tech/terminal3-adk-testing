@@ -47,9 +47,7 @@ Submission for the Terminal3 ADK bounty (Superteam Earn): testing the T3N SDK qu
 ## Screenshots
 
 See `/screenshots` folder:
-- [`claim-page.png`](screenshots/claim-page.png) — API key + DID claimed
-- [`quickstart-code.png`](screenshots/quickstart-code.png) — quickstart.ts content
-- [`handshake-error.png`](screenshots/handshake-error.png) — full error stack trace
+
 
 
 ## Initial use case (bonus)
