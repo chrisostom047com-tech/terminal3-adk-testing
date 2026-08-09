@@ -40,14 +40,17 @@ Submission for the Terminal3 ADK bounty (Superteam Earn): testing the T3N SDK qu
 - Cross-referenced the ["Common errors"](https://docs.terminal3.io/developers/adk/tips/common-errors) page — this exact error (`unsafe_trust_server`) is **not listed** anywhere in the documented error tables (tenant operations, generic HTTP 500s, integration gotchas, or auth/wallet linking)
 - The error is a raw `TypeError` from an `undefined` property read, not a structured `bad_request` JSON-RPC error as described in the docs' error-handling convention — suggesting a config object the SDK expects (likely something related to trusted-node config for the WASM component) is not populated when following the Quickstart steps as written
 
-**Full stack trace:** see `screenshots/handshake-error.png`
+**Full stack trace:** see [`handshake-error.png`](handshake-error.png)
 
 **Suggested fix direction:** The `T3nClient` constructor or `setEnvironment("testnet")` may need to populate a trust-server config value that isn't set by the documented Quickstart flow. Worth checking whether `loadWasmComponent()` or the `T3nClient({ wasmComponent, handlers })` config needs an additional field (e.g. an explicit trusted-node allowlist) not mentioned in the current docs.
 
 ## Screenshots
 
-See `/screenshots` folder:
+See the screenshots below:
 
+- [`claim-page.png`](claim-page.png) — API key + DID claimed
+- [`quickstart-code.png`](quickstart-code.png) — quickstart.ts content
+- [`handshake-error.png`](handshake-error.png) — full error stack trace
 
 
 ## Initial use case (bonus)
